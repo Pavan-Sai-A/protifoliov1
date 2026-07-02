@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg:      #0f0f13;
+    --card:    #161619;
+    --line:    #222228;
+    --line2:   #2e2e38;
+    --indigo:  #6366f1;
+    --ind-bg:  rgba(99,102,241,0.08);
+    --ind-bd:  rgba(99,102,241,0.18);
+    --t1: #eef2ff;
+    --t2: #8892a4;
+    --t3: #4a5568;
+    --t4: #252530;
+    --r:  8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--t2);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  ::selection { background: rgba(99,102,241,0.2); color: #fff; }
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 99px; }
+}
+
+/* ── Card ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  transition: border-color 0.18s;
+}
+.card:hover { border-color: var(--line2); }
+
+/* ── Buttons ── */
+.btn-fill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 20px; border-radius: var(--r);
+  font-size: 0.84rem; font-weight: 600; color: #fff;
+  background: var(--indigo);
+  border: none; text-decoration: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.btn-fill:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 20px; border-radius: var(--r);
+  font-size: 0.84rem; font-weight: 500; color: var(--t2);
+  background: transparent; border: 1px solid var(--line2);
+  text-decoration: none; cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.btn-outline:hover { border-color: var(--indigo); color: var(--t1); transform: translateY(-1px); }
+
+/* ── Tag ── */
+.tag {
+  display: inline-flex; align-items: center;
+  padding: 3px 9px; border-radius: 5px;
+  font-size: 0.69rem; font-weight: 500;
+  background: var(--card); border: 1px solid var(--line2);
+  color: var(--t3); white-space: nowrap;
+}
+
+/* ── Timeline ── */
+.tl-line {
+  position: absolute; left: 0; top: 14px; bottom: 0;
+  width: 1px; background: var(--line2);
+}
+.tl-dot {
+  position: absolute; left: -4px; top: 22px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+/* ── Cursor ── */
+.cursor {
+  display: inline-block; width: 2px; height: 0.85em;
+  background: var(--indigo); margin-left: 2px;
+  vertical-align: middle; border-radius: 1px;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── Divider ── */
+.hr { height: 1px; background: var(--line); }
