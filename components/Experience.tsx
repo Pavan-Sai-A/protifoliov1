@@ -10,7 +10,7 @@ const JOBS = [
     location: 'Hyderabad',
     period: 'May 2025 – Present',
     current: true,
-    stack: ['React.js','TypeScript','Redux','Bootstrap','SCSS','Webpack','Vitest','Office JS API','AI/LLMs'],
+    stack: ['React.js', 'TypeScript', 'Redux', 'Bootstrap', 'SCSS', 'Webpack', 'Vitest', 'Office JS API', 'AI/LLMs'],
     bullets: [
       'Architected the front-end of BEZ, an AI-driven finance SaaS serving AP and bookkeeping teams across transaction categorisation, reconciliation, and reporting.',
       'Delivered AI-powered bookkeeping automation cutting manual processing time by 30% through intelligent categorisation pipelines.',
@@ -26,7 +26,7 @@ const JOBS = [
     location: 'Ahmedabad',
     period: 'Jan 2023 – Jan 2025',
     current: false,
-    stack: ['React.js','Next.js','TypeScript','Tailwind CSS','Material UI','Redux','RxDB','TanStack Query','Zustand','Webpack','Vercel','Azure'],
+    stack: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Material UI', 'Redux', 'RxDB', 'TanStack Query', 'Zustand', 'Webpack', 'Vercel', 'Azure'],
     bullets: [
       'Reduced initial bundle size by ~40% via code splitting and lazy loading, cutting first-contentful-paint time and improving user retention.',
       'Designed Redux state architecture and RESTful API integration for a multi-tenant dashboard with offline-first sync via RxDB.',
@@ -40,7 +40,7 @@ const JOBS = [
     location: 'Remote',
     period: 'May 2022 – Dec 2022',
     current: false,
-    stack: ['React.js','Bootstrap','Node.js','Python','REST APIs','SQL'],
+    stack: ['React.js', 'Bootstrap', 'Node.js', 'Python', 'REST APIs', 'SQL'],
     bullets: [
       'Built reusable React and Bootstrap component libraries across 5+ internal projects, reducing feature development time by ~25%.',
       'Completed full-stack training in Node.js, Python, REST APIs, and SQL — underpinning a self-directed transition into production front-end development.',
@@ -48,55 +48,49 @@ const JOBS = [
   },
 ]
 
-const T: React.CSSProperties = {
-  display: 'inline-flex', padding: '3px 9px', borderRadius: 5,
-  fontSize: '0.69rem', fontWeight: 500,
-  background: '#161619', border: '1px solid #2e2e38',
-  color: '#4a5568', whiteSpace: 'nowrap',
-}
-
 function JobCard({ job, index }: { job: typeof JOBS[0]; index: number }) {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(index === 0)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
-      transition={{ duration: 0.4, delay: index * 0.06 }}
-      style={{ position: 'relative', paddingLeft: 22 }}
+      transition={{ duration: 0.4, delay: index * 0.07 }}
+      className="tl-wrap"
     >
       <div className="tl-dot" />
-
       <div className="card" style={{ overflow: 'hidden' }}>
         <button
           onClick={() => setOpen(o => !o)}
           style={{
-            width: '100%', textAlign: 'left', padding: '18px 20px',
-            display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12,
+            width: '100%', textAlign: 'left', padding: '20px 24px',
+            display: 'flex', alignItems: 'flex-start',
+            justifyContent: 'space-between', gap: 16,
             background: 'none', border: 'none', cursor: 'pointer',
           }}
         >
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-              <h3 style={{ fontSize: '0.92rem', fontWeight: 600, color: '#eef2ff' }}>{job.role}</h3>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 10, marginBottom: 5 }}>
+              <h3 style={{ fontSize: '0.97rem', fontWeight: 600, color: '#0f172a' }}>{job.role}</h3>
               {job.current && (
                 <span style={{
-                  fontSize: '0.6rem', fontWeight: 600, padding: '2px 7px', borderRadius: 4,
-                  background: 'rgba(99,102,241,0.1)', color: '#a5b4fc',
-                  border: '1px solid rgba(99,102,241,0.18)',
+                  fontSize: '0.62rem', fontWeight: 700,
+                  padding: '2px 9px', borderRadius: 5,
+                  background: 'rgba(13,148,136,0.08)', color: '#0f766e',
+                  border: '1px solid rgba(13,148,136,0.2)',
                   letterSpacing: '0.07em', textTransform: 'uppercase',
                 }}>
                   Current
                 </span>
               )}
             </div>
-            <p style={{ fontSize: '0.8rem', color: '#4a5568' }}>
+            <p style={{ fontSize: '0.84rem', color: '#64748b' }}>
               {job.company} · {job.location} · {job.period}
             </p>
           </div>
-          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <IconChevronDown size={14} stroke={1.5} style={{ color: '#2e2e38', marginTop: 3 }} />
+          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} style={{ flexShrink: 0, marginTop: 2 }}>
+            <IconChevronDown size={16} stroke={1.5} style={{ color: '#94a3b8' }} />
           </motion.div>
         </button>
 
@@ -109,17 +103,17 @@ function JobCard({ job, index }: { job: typeof JOBS[0]; index: number }) {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               style={{ overflow: 'hidden' }}
             >
-              <div style={{ padding: '0 20px 20px', borderTop: '1px solid #222228' }}>
-                <ul style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 8, listStyle: 'none' }}>
+              <div style={{ padding: '0 24px 24px', borderTop: '1px solid #e2e8f0' }}>
+                <ul style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 10, listStyle: 'none' }}>
                   {job.bullets.map((b, i) => (
-                    <li key={i} style={{ display: 'flex', gap: 10, fontSize: '0.83rem', lineHeight: 1.65, color: '#5a6478' }}>
-                      <span style={{ color: '#6366f1', flexShrink: 0, marginTop: 1, fontSize: '0.7rem' }}>—</span>
+                    <li key={i} style={{ display: 'flex', gap: 12, fontSize: '0.875rem', lineHeight: 1.75, color: '#475569' }}>
+                      <span style={{ color: '#0d9488', flexShrink: 0, marginTop: 5, fontSize: '0.45rem' }}>●</span>
                       {b}
                     </li>
                   ))}
                 </ul>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 14 }}>
-                  {job.stack.map(s => <span key={s} style={T}>{s}</span>)}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 16 }}>
+                  {job.stack.map(s => <span key={s} className="tag">{s}</span>)}
                 </div>
               </div>
             </motion.div>
@@ -132,23 +126,25 @@ function JobCard({ job, index }: { job: typeof JOBS[0]; index: number }) {
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ padding: '80px 24px', maxWidth: 800, margin: '0 auto' }}>
-      <motion.div
-        initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.45 }}
-        style={{ marginBottom: 40 }}
-      >
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#eef2ff', marginBottom: 6 }}>
-          Work Experience
-        </h2>
-        <p style={{ fontSize: '0.88rem', color: '#4a5568' }}>3.4 years across fintech and EdTech.</p>
-      </motion.div>
+    <section id="experience" className="section" style={{ background: '#f8fafc' }}>
+      <div className="container" style={{ maxWidth: 820 }}>
 
-      <div style={{ position: 'relative' }}>
-        <div className="tl-line" />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          {JOBS.map((job, i) => <JobCard key={job.company} job={job} index={i} />)}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.4 }}
+        >
+          <p className="eyebrow">Career</p>
+          <h2 className="section-title">Work Experience</h2>
+          <p className="section-sub">3.4 years across fintech and EdTech products.</p>
+        </motion.div>
+
+        <div style={{ position: 'relative' }}>
+          <div className="tl-line" />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {JOBS.map((job, i) => <JobCard key={job.company} job={job} index={i} />)}
+          </div>
         </div>
+
       </div>
     </section>
   )
